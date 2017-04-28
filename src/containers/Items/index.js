@@ -11,7 +11,7 @@ export class Items extends Component {
           className={'Items-list-item'}
           onClick={() => addToCartAction(item) }
       >
-        <img role="presentation" src={item.link} />
+        <img role="presentation" className={'Items-image'} src={item.link} />
         <span>{item.title}</span>
       </li>
     ))
