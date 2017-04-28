@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import './items.css';
 
-export default class Items extends Component {
+export class Items extends Component {
   renderList= () => {
-    const listOfData = [];
-    return listOfData.map((item) => (
+    const { items } = this.props;
+    return items.map((item) => (
       <li key={item.id}
           className={'Items-list-item'}
           onClick={() => console.log('added to store')}
@@ -22,3 +23,9 @@ export default class Items extends Component {
     )
   }
 }
+
+const mapStateToProps = (reduxState) => ({
+  items: reduxState.items
+});
+
+export default connect(mapStateToProps)(Items);
